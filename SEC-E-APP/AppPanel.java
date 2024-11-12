@@ -15,26 +15,31 @@ public class AppPanel extends JPanel {
     int x = 0;
     int y = 100;
 
+    Car car1;
+    Car car2;
+    Car car3;
+    Car car4;
+    Car car5;
+
     AppPanel() {
         setSize(500, 500);
+        car1 = new Car(30, 300, 80, 120, "car.png", 1);
+        car2 = new Car(150, 300, 80, 120, "car.png", 5);
+        car5 = new Car(150, 50, 80, 120, "car.png", 5);
+        car3 = new Car(250, 300, 80, 120, "car.png", 2);
+        car4 = new Car(360, 300, 80, 120, "car.png", 10);
         // setBackground(Color.BLUE);
-        loadBgImage();
         keyBoardControls();
         appLoop();
         setFocusable(true);
     }
 
-    void loadBgImage() {
-        try {
-            bgImage = ImageIO.read(AppPanel.class.getResource("car.png"));
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-    }
-
     void appLoop() {
         timer = new Timer(30, (abc) -> {
+            // car1.moveUp();
+            // car2.moveUp();
+            // car3.moveUp();
+            // car4.moveUp();
             repaint();
         });
         timer.start();
@@ -74,6 +79,10 @@ public class AppPanel extends JPanel {
     protected void paintComponent(Graphics pen) {
         super.paintComponent(pen);
         // TODO Auto-generated method stub
-        pen.drawImage(bgImage, x, y, 120, 120, null);
+        car1.paintCar(pen);
+        car2.paintCar(pen);
+        car3.paintCar(pen);
+        car4.paintCar(pen);
+        car5.paintCar(pen);
     }
 }
